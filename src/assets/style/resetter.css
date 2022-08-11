@@ -19,7 +19,9 @@ body {
   -moz-transition: initial;
   -ms-transition: initial;
   -o-transition: initial;
+}
 
+html {
   font-size: 62.5%; /** 1rem = 10px */
 }
 
@@ -53,6 +55,8 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+
+  font-size: 2.2rem; /** Base font-size */
 }
 
 /* A elements that don't have a class get default styles */
