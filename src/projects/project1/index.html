@@ -6,16 +6,29 @@
   <link rel="icon" href="/src/assets/images/logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#333" />
-  <meta name="description" content="🍎 Part of Raw HTML & CSS & JS Projects, mohamedshelfwork@gmail.com" />
+  <meta name="description" content="🍎 Part of my 'Raw HTML & CSS & JS' Projects, mohamedshelfwork@gmail.com" />
   <link rel="apple-touch-icon" href="logo.png" />
-  <title>🍎 PROJECT-#</title>
+  <title>Rotation Text</title>
   <link rel="stylesheet" href="/src/assets/style/resetter.css">
   <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
+  <div class="circle">
+    <div class="logo"></div>
+    <div class="text" id="image-text">
+      <p>Mohamed Shelf-Front-end Developer</p>
+    </div>
+  </div>
 
+  <script defer>
+    const text = document.getElementById('image-text');
+    text.innerHTML = text.innerText.split("").map(
+      (char, i) =>
+        (`<span class="char" style="transform: rotate(${i * 10.5}deg);">${char}</span>`)
+
+    ).join("")
+  </script>
 </body>
 
 </html>
