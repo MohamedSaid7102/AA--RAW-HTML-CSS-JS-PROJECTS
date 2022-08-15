@@ -1,6 +1,97 @@
+body {
+  background-color: #00233b;
+  color: #e1e8f5;
+}
+/* Header Start */
+.main-page-header {
+  --line-decore-width: 100px;
+}
+.logo-heading-wrapper .header-logo {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #fff;
+  box-shadow: 0 0 30px rgb(192 219 255 / 75%), 0 0 32px rgb(65 120 255 / 24%);
+
+  padding: 10px;
+  margin: 4rem 0 0 4rem;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+}
+
+.logo-heading-wrapper .header-heading {
+  font-weight: 100;
+  left: 160px;
+  top: 40px;
+  margin-bottom: 80px;
+  position: relative;
+  margin-left: 100px;
+}
+
+.logo-heading-wrapper .header-heading::before,
+.logo-heading-wrapper .header-heading::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: var(--line-decore-width, 100px);
+  height: 1px;
+  background-color: #fff;
+  top: 55%;
+}
+
+.logo-heading-wrapper .header-heading::before {
+  left: calc(-1 * var(--line-decore-width, 100px));
+}
+
+.main-page-header .author-info {
+  position: fixed;
+  font-weight: 200;
+  left: 65px;
+  top: 280px;
+}
+.main-page-header .author-info::before,
+.main-page-header .author-info::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 1px;
+  height: var(--line-decore-width, 100px);
+  background-color: #fff;
+}
+.main-page-header .author-info::before {
+  top: -110px;
+  left: 17px;
+}
+.main-page-header .author-info::after {
+  bottom: -110px;
+  left: 15px;
+}
+
+.main-page-header .author-info p {
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -ms-writing-mode: vertical-lr;
+}
+.main-page-header .author-info {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+}
+
+/* Header End */
+
+/* Projects Start */
+.projects-container {
+  margin-left: 150px;
+}
 .projects-container .card {
   /* Variables */
-  --card-hover-clr: #1b2635;
+  --card-hover-clr: #317c78;
   /* Style */
   width: 450px;
   height: 600px;
