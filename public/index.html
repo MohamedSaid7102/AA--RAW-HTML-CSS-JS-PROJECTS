@@ -9,13 +9,25 @@
   <meta name="description" content="My Raw HTML & CSS & JS Projects, mohamedshelfwork@gmail.com" />
   <link rel="apple-touch-icon" href="/src/assets/images/logo.png" />
   <title>Shelf HTML&CSS</title>
-  <link rel="stylesheet" href="/src/assets/style/resetter.css">
+  <link rel="stylesheet" href="/src/assets/style/resetter&utility-classes.css">
   <link rel="stylesheet" href="/src/assets/style/main.css">
+  <script src="/src/script/script.js" defer></script>
 </head>
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
-  <a href="/src/projects/project1/index.html">Click me</a>
+  <h1>HTML&CSS&JS Projects</h1>
+  <div class="projects-container flex-center flex-row flex-wrap gapX3">
+    <!-- 1 -->
+    <div class="card">
+      <span class="animation-span"></span>
+      <div class="card__img"><img src="/src/assets/images/project-1.png" alt="project image"></div>
+      <div class="card__content flex-center flex-column">
+        <h2 class="project-title text-glow">Rotation Text</h2>
+        <a href="/src/projects/project1/" class="preview-link gradient-border box-glow">Watch Live</a>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
