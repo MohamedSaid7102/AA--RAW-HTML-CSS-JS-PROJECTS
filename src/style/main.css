@@ -57,17 +57,16 @@ body {
   content: '';
   display: inline-block;
   position: absolute;
+  left: 10px;
   width: 1px;
   height: var(--line-decore-width, 100px);
   background-color: #fff;
 }
 .main-page-header .author-info::before {
   top: -110px;
-  left: 17px;
 }
 .main-page-header .author-info::after {
   bottom: -110px;
-  left: 15px;
 }
 
 .main-page-header .author-info p {
@@ -88,17 +87,19 @@ body {
 /* Projects Start */
 .projects-container {
   margin-left: 150px;
+  padding-right: 1.5rem;
 }
+
 .projects-container .card {
   /* Variables */
-  --card-hover-clr: #317c78;
+  --card-hover-clr: #01152a;
   /* Style */
-  width: 450px;
-  height: 600px;
+  width: 330px;
+  height: 450px;
   position: relative;
   overflow: hidden;
 
-  border: 1px solid gray;
+  border: 1px solid rgb(226, 224, 224);
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -186,6 +187,9 @@ body {
 
 /* Hover Actions */
 
+.projects-container .card:hover {
+  box-shadow: 0 0 5px #fff;
+}
 .projects-container .card:hover .card__content {
   visibility: visible;
   opacity: 1;
@@ -200,6 +204,64 @@ body {
   width: 1500px;
   height: 1500px;
 }
+
+/* Responsivenes Start */
+@media (max-width: 796px) {
+  .main-page-header .header-heading {
+    font-size: 25px;
+    letter-spacing: 2px;
+  }
+}
+@media (max-width: 642px) {
+  .main-page-header .header-heading {
+    visibility: none;
+    opacity: 0;
+  }
+}
+@media (max-width: 544px) {
+  .projects-container .card {
+    max-width: 200px;
+    max-height: 250px;
+  }
+}
+@media (max-width: 450px) {
+  .projects-container {
+    margin: 0 0 0 10rem;
+  }
+  .main-page-header .author-info{
+    left: 4rem;
+    top: 25rem;
+  }
+}
+@media (max-width: 400px) {
+  .logo-heading-wrapper .header-logo {
+    margin: 1rem;
+  }
+}
+@media (max-width: 320px) {
+  .projects-container {
+    margin: 0 0 0 5rem;
+  }
+  .main-page-header .author-info{
+    left: 1rem;
+    top: 25rem;
+  }
+}
+
+/* Responsivenes End */
+
+/* Media Start */
+@media (prefers-reduced-motion: reduce) {
+  .projects-container .card:hover .animation-span {
+    width: 0;
+    height: 0;
+  }
+  .projects-container .card:hover .card__content .project-title {
+    color: #000;
+    text-shadow: 0 0 10px #fff;
+  }
+}
+/* Media End */
 
 /* ****************************** */
 /* **** Web 3.0 Style Classes **** */
