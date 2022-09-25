@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Before&After Comparison</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <div class="slider">
+      <div class="slider__image-container">
+        <img
+          src="https://lh3.googleusercontent.com/reSlWpOeiO-440PLIxnyPCa8mtsXKFYHjjGfbAc5N9JU7tG2q0vAd40-_rLvUUNPfQc=w2400"
+          class="before-image slide-image" alt="before blurred image of google with bubbles">
+        <img
+          src="https://lh3.googleusercontent.com/reSlWpOeiO-440PLIxnyPCa8mtsXKFYHjjGfbAc5N9JU7tG2q0vAd40-_rLvUUNPfQc=w2400"
+          class="after-image slide-image" alt="after image of google with bubbles">
+      </div>
+      <input class="slider__range" type="range" min="0" value="50" max="100"
+        aria-label="Percentage of before and after image shown">
+      <div class="slider__line" aria-hidden="true"></div>
+      <div class="slider__button" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 256 256">
+          <rect width="256" height="256" fill="none"></rect>
+          <circle cx="92" cy="60" r="12"></circle>
+          <circle cx="164" cy="60" r="12"></circle>
+          <circle cx="92" cy="128" r="12"></circle>
+          <circle cx="164" cy="128" r="12"></circle>
+          <circle cx="92" cy="196" r="12"></circle>
+          <circle cx="164" cy="196" r="12"></circle>
+        </svg>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
