@@ -30,9 +30,15 @@ body {
   -o-border-radius: 100%;
 }
 .logo-heading-wrapper .header-logo:hover,
+.logo-heading-wrapper .header-logo:focus-visible,
 .logo-heading-wrapper .header-logo:focus-within {
   box-shadow: 0 0 50px rgba(213, 226, 243, 0.912),
     0 0 32px rgba(65, 119, 255, 0.577);
+  outline: 3px dotted #fff;
+  outline-offset: 3px;
+}
+.linkedin-link:focus {
+  outline-color: transparent;
 }
 
 .logo-heading-wrapper .header-heading {
@@ -105,7 +111,7 @@ body {
 .projects-container {
   margin-left: 150px;
   padding-right: 1.5rem;
-  border: 1px dashed #fff;
+  border: 1px dotted #fff;
   padding: 2rem;
   margin-right: 2rem;
 }
@@ -193,14 +199,25 @@ body {
   -o-transition: 500ms;
 }
 
+.card__content .view {
+  outline: 3px dotted transparent;
+  outline-offset: 3px;
+}
+.card__content .view:focus,
+.card__content .view:focus-visible {
+  outline: 3px dotted #fff;
+  outline-offset: 3px;
+}
 /* Hover Actions */
 
-.projects-container .card:hover,
+.projects-container .card:focus-visible,
 .projects-container .card:focus-within {
-  box-shadow: 0 0 5px #fff;
+  outline: 3px dotted #fff;
+  outline-offset: 5px;
 }
 
 .projects-container .card:hover .card__content,
+.projects-container .card:focus-visible .card__content,
 .projects-container .card:focus-within .card__content {
   visibility: visible;
   opacity: 1;
@@ -286,7 +303,7 @@ body {
   .main-page-header .author-info {
     display: none;
   }
-  .card #view {
+  .card .view {
     font-size: 2rem;
   }
   .projects-container {
@@ -374,4 +391,3 @@ body {
 /* Responsivenes End */
 
 /* *** Media End ***  */
-
