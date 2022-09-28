@@ -1,13 +1,17 @@
 .button {
-  text-decoration: none;
-  color: #fff;
-  border: 1px solid #eee;
-  padding: 0.5em 1.3em;
+  cursor: pointer;
+  margin: 0;
+  height: max-content;
   position: relative;
-  font-size: 28px;
+  border: 1px dashed #eee;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
 
-.button.button--rotate-over {
+.button--rotate-over {
   transition: background-color 250ms ease-in-out 0.25s;
   -webkit-transition: background-color 250ms ease-in-out 0.25s;
   -moz-transition: background-color 250ms ease-in-out 0.25s;
@@ -15,13 +19,20 @@
   -o-transition: background-color 250ms ease-in-out 0.25s;
 }
 
-.button.button--rotate-over:hover {
+.button--rotate-over:hover,
+.button--rotate-over:focus-within {
+  outline: 1px solid transparent;
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
   border-color: transparent;
   background-color: #004668;
 }
 
 /* border animation */
-.button.button--rotate-over span {
+.button--rotate-over span {
   position: absolute;
   transition: transform 250ms ease-in-out;
   -webkit-transition: transform 250ms ease-in-out;
@@ -29,7 +40,7 @@
   -ms-transition: transform 250ms ease-in-out;
   -o-transition: transform 250ms ease-in-out;
 }
-.button.button--rotate-over span:nth-child(1) {
+.button--rotate-over span:nth-child(1) {
   left: 0;
   bottom: 0;
   height: 100%;
@@ -38,11 +49,12 @@
   transform: scaleY(0);
   transform-origin: top;
 }
-.button.button--rotate-over:hover span:nth-child(1) {
+.button--rotate-over:hover span:nth-child(1),
+.button--rotate-over:focus-within span:nth-child(1) {
   transform: scaleY(1);
   transform-origin: bottom;
 }
-.button.button--rotate-over span:nth-child(2) {
+.button--rotate-over span:nth-child(2) {
   top: 0;
   left: 0;
   height: 1.5px;
@@ -51,11 +63,12 @@
   transform: scaleX(0);
   transform-origin: right;
 }
-.button.button--rotate-over:hover span:nth-child(2) {
+.button--rotate-over:hover span:nth-child(2),
+.button--rotate-over:focus-within span:nth-child(2) {
   transform: scaleX(1);
   transform-origin: left;
 }
-.button.button--rotate-over span:nth-child(3) {
+.button--rotate-over span:nth-child(3) {
   right: 0;
   top: 0;
   height: 100%;
@@ -64,11 +77,12 @@
   transform: scaleY(0);
   transform-origin: bottom;
 }
-.button.button--rotate-over:hover span:nth-child(3) {
+.button--rotate-over:hover span:nth-child(3),
+.button--rotate-over:focus-within span:nth-child(3) {
   transform: scaleY(1);
   transform-origin: top;
 }
-.button.button--rotate-over span:nth-child(4) {
+.button--rotate-over span:nth-child(4) {
   bottom: 0;
   right: 0;
   height: 1.5px;
@@ -77,7 +91,8 @@
   transform: scaleX(0);
   transform-origin: left;
 }
-.button.button--rotate-over:hover span:nth-child(4) {
+.button--rotate-over:hover span:nth-child(4),
+.button--rotate-over:focus-within span:nth-child(4) {
   transform: scaleX(1);
   transform-origin: right;
 }
