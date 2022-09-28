@@ -30,84 +30,413 @@
       <p>Mohamed S.Shelf - Front-end Developer</p>
     </div>
   </header>
-  <div class="projects-container flex-center flex-row flex-wrap gapX3">
-    <!-- 1 -->
-    <div class="card-wrap rgb">
-      <div class="card" tabindex="1">
-        <span class="animation-span"></span>
-        <div class="card__img"><img src="/src/assets/images/project-1.png" alt="project image"></div>
-        <div class="card__content flex-center flex-column gapX3">
-          <h2 class="project-title text-glow">Rotation Text</h2>
-          <p class="project-description">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-          <a href="/src/projects/project1/" target="_blank" class="button button--rotate-over view" tabindex="1">
-            <span></span><span></span><span></span><span></span> Demo</a>
-          <a href="https://github.com/MohamedSaid7102/AA--RAW-HTML-CSS-JS-PROJECTS/tree/main/src/projects/project1"
-            target="_blank" class="button button--rotate-over view" tabindex="1">
-            <span></span><span></span><span></span><span></span> Code &lt;/&gt;</a>
+  <main>
+    <section class="projects-container flex-center flex-row flex-wrap gapX3">
+      <!-- Project #1 -->
+      <article class="card-wrap rgb">
+        <div class="card flex-start flex-column gapX2">
+          <!-- 1. Image -->
+          <picture class="card__hero">
+            <a href="/src/projects/project1/" aria-label="project hero image" tabindex="-1">
+              <img src="/src/assets/images/project-1.png" alt="project 1">
+            </a>
+          </picture>
+          <!-- 2. Content -->
+          <div class="card__content flex-start flex-column gapX2">
+            <h2 class="content__title">
+              <a href="/src/projects/project1/" class="text-glow">
+                Rotation Text
+              </a>
+            </h2>
+            <div class="content__desc">Rotating Text around an image</div>
+            <!-- Links -->
+            <div class="content__links flex-start flex-wrap gapX2">
+              <!-- DEMO Link  -->
+              <div role="link" class="button button--rotate-over view">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <a href="/src/projects/project1/" target="_blank" class="link" tabindex="0">
+                  Demo
+                  <svg class="link__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                    fill="currentColor" viewBox="0 0 256 256">
+                    <rect width="256" height="256" fill="none"></rect>
+                    <path d="M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Z" fill="none"
+                      stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                    <circle cx="128" cy="128" r="40" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"></circle>
+                  </svg>
+                </a>
+              </div>
+              <!-- Code Link -->
+              <div role="link" class="button button--rotate-over view">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <a href="https://github.com/MohamedSaid7102/AA--RAW-HTML-CSS-JS-PROJECTS/tree/main/src/projects/project1"
+                  target="_blank" class="link" tabindex="0">
+                  Code
+                  <svg class="link__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                    fill="currentColor" viewBox="0 0 256 256">
+                    <rect width="256" height="256" fill="none"></rect>
+                    <polyline points="64 88 16 128 64 168" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"></polyline>
+                    <polyline points="192 88 240 128 192 168" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"></polyline>
+                    <line x1="160" y1="40" x2="96" y2="216" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- 3. Tags -->
+          <footer class="card__tags flex-start flex-row flex-wrap gapX1" role="list">
+            <!-- HTML Tag -->
+            <button class="card-tag" data-filter="html" aria-label="filter projects by html">
+              <span aria-hidden="true">#</span>
+              HTML
+            </button>
+            <!-- CSS Tag -->
+            <button class="card-tag" data-filter="css" aria-label="filter projects by css">
+              <span aria-hidden="true">#</span>
+              CSS
+            </button>
+            <!-- JS Tag -->
+            <button class="card-tag" data-filter="js" aria-label="filter projects by js">
+              <span aria-hidden="true">#</span>
+              JS
+            </button>
+          </footer>
         </div>
-      </div>
-    </div>
-    <!-- 2 -->
-    <div class="card-wrap rgb">
-      <div class="card" tabindex="1">
-        <span class="animation-span"></span>
-        <div class="card__img"><img src="/src/assets/images/project-2.png" alt="project image"></div>
-        <div class="card__content flex-center flex-column gapX3">
-          <h2 class="project-title text-glow">Screen Time</h2>
-          <a href="/src/projects/project2/" target="_blank" class="button button--rotate-over view" tabindex="1">
-            <span></span><span></span><span></span><span></span> View</a>
-          <a href="https://github.com/MohamedSaid7102/AA--RAW-HTML-CSS-JS-PROJECTS/tree/main/src/projects/project2"
-            target="_blank" class="button button--rotate-over view" tabindex="1">
-            <span></span><span></span><span></span><span></span> Code &lt;/&gt;</a>
+      </article>
+      <!-- Project #2 -->
+      <article class="card-wrap rgb">
+        <div class="card flex-start flex-column gapX2">
+          <!-- 1. Image -->
+          <picture class="card__hero">
+            <a href="/src/projects/project2/" aria-label="project hero image" tabindex="-1">
+              <img src="/src/assets/images/project-2.png" alt="project 2">
+            </a>
+          </picture>
+          <!-- 2. Content -->
+          <div class="card__content flex-start flex-column gapX2">
+            <h2 class="content__title">
+              <a href="/src/projects/project2/" class="text-glow">
+                Welcome google page
+              </a>
+            </h2>
+            <div class="content__desc">you can enter your name in this Page and your today's task & your info will be
+              saved
+              into
+              localstorage.</div>
+            <!-- Links -->
+            <div class="content__links flex-start flex-wrap gapX2">
+              <!-- DEMO Link  -->
+              <div role="link" class="button button--rotate-over view">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <a href="/src/projects/project2/" target="_blank" class="link" tabindex="0">
+                  Demo
+                  <svg class="link__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                    fill="currentColor" viewBox="0 0 256 256">
+                    <rect width="256" height="256" fill="none"></rect>
+                    <path d="M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Z" fill="none"
+                      stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                    <circle cx="128" cy="128" r="40" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"></circle>
+                  </svg>
+                </a>
+              </div>
+              <!-- Code Link -->
+              <div role="link" class="button button--rotate-over view">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <a href="https://github.com/MohamedSaid7102/AA--RAW-HTML-CSS-JS-PROJECTS/tree/main/src/projects/project2"
+                  target="_blank" class="link" tabindex="0">
+                  Code
+                  <svg class="link__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                    fill="currentColor" viewBox="0 0 256 256">
+                    <rect width="256" height="256" fill="none"></rect>
+                    <polyline points="64 88 16 128 64 168" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"></polyline>
+                    <polyline points="192 88 240 128 192 168" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"></polyline>
+                    <line x1="160" y1="40" x2="96" y2="216" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- 3. Tags -->
+          <footer class="card__tags flex-start flex-row flex-wrap gapX1" role="list">
+            <!-- HTML Tag -->
+            <button class="card-tag" data-filter="html" aria-label="filter projects by html">
+              <span aria-hidden="true">#</span>
+              HTML
+            </button>
+            <!-- CSS Tag -->
+            <button class="card-tag" data-filter="css" aria-label="filter projects by css">
+              <span aria-hidden="true">#</span>
+              CSS
+            </button>
+            <!-- JS Tag -->
+            <button class="card-tag" data-filter="js" aria-label="filter projects by js">
+              <span aria-hidden="true">#</span>
+              JS
+            </button>
+          </footer>
         </div>
-      </div>
-    </div>
-    <!-- 3-->
-    <div class="card-wrap rgb">
-      <div class="card" tabindex="1">
-        <span class="animation-span"></span>
-        <div class="card__img"><img src="/src/assets/images/project-3.png" alt="project image"></div>
-        <div class="card__content flex-center flex-column gapX3">
-          <h2 class="project-title text-glow">Screen Time</h2>
-          <a href="/src/projects/project3/" target="_blank" class="button button--rotate-over view" tabindex="1">
-            <span></span><span></span><span></span><span></span> View</a>
-          <a href="https://github.com/MohamedSaid7102/AA--RAW-HTML-CSS-JS-PROJECTS/tree/main/src/projects/project3"
-            target="_blank" class="button button--rotate-over view" tabindex="1">
-            <span></span><span></span><span></span><span></span> Code &lt;/&gt;</a>
+      </article>
+      <!-- Project #3 -->
+      <article class="card-wrap rgb">
+        <div class="card flex-start flex-column gapX2">
+          <!-- 1. Image -->
+          <picture class="card__hero">
+            <a href="/src/projects/project3/" aria-label="project hero image" tabindex="-1">
+              <img src="/src/assets/images/project-3.png" alt="project 3">
+            </a>
+          </picture>
+          <!-- 2. Content -->
+          <div class="card__content flex-start flex-column gapX2">
+            <h2 class="content__title">
+              <a href="/src/projects/project3/" class="text-glow">
+                Fancy Hover
+              </a>
+            </h2>
+            <div class="content__desc">Fancy mouse hover effect</div>
+            <!-- Links -->
+            <div class="content__links flex-start flex-wrap gapX2">
+              <!-- DEMO Link  -->
+              <div role="link" class="button button--rotate-over view">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <a href="/src/projects/project3/" target="_blank" class="link" tabindex="0">
+                  Demo
+                  <svg class="link__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                    fill="currentColor" viewBox="0 0 256 256">
+                    <rect width="256" height="256" fill="none"></rect>
+                    <path d="M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Z" fill="none"
+                      stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                    <circle cx="128" cy="128" r="40" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"></circle>
+                  </svg>
+                </a>
+              </div>
+              <!-- Code Link -->
+              <div role="link" class="button button--rotate-over view">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <a href="https://github.com/MohamedSaid7102/AA--RAW-HTML-CSS-JS-PROJECTS/tree/main/src/projects/project3"
+                  target="_blank" class="link" tabindex="0">
+                  Code
+                  <svg class="link__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                    fill="currentColor" viewBox="0 0 256 256">
+                    <rect width="256" height="256" fill="none"></rect>
+                    <polyline points="64 88 16 128 64 168" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"></polyline>
+                    <polyline points="192 88 240 128 192 168" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"></polyline>
+                    <line x1="160" y1="40" x2="96" y2="216" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- 3. Tags -->
+          <footer class="card__tags flex-start flex-row flex-wrap gapX1" role="list">
+            <!-- HTML Tag -->
+            <button class="card-tag" data-filter="html" aria-label="filter projects by html">
+              <span aria-hidden="true">#</span>
+              HTML
+            </button>
+            <!-- CSS Tag -->
+            <button class="card-tag" data-filter="css" aria-label="filter projects by css">
+              <span aria-hidden="true">#</span>
+              CSS
+            </button>
+            <!-- JS Tag -->
+            <button class="card-tag" data-filter="js" aria-label="filter projects by js">
+              <span aria-hidden="true">#</span>
+              JS
+            </button>
+          </footer>
         </div>
-      </div>
-    </div>
-    <!-- 4 -->
-    <div class="card-wrap rgb">
-      <div class="card" tabindex="1">
-        <span class="animation-span"></span>
-        <div class="card__img"><img src="/src/assets/images/project-4.png" alt="project image"></div>
-        <div class="card__content flex-center flex-column gapX3">
-          <h2 class="project-title text-glow">Screen Time</h2>
-          <a href="/src/projects/project4/" target="_blank" class="button button--rotate-over view" tabindex="1">
-            <span></span><span></span><span></span><span></span> View</a>
-          <a href="https://github.com/MohamedSaid7102/AA--RAW-HTML-CSS-JS-PROJECTS/tree/main/src/projects/project4"
-            target="_blank" class="button button--rotate-over view" tabindex="1">
-            <span></span><span></span><span></span><span></span> Code &lt;/&gt;</a>
+      </article>
+      <!-- Project #4 -->
+      <article class="card-wrap rgb">
+        <div class="card flex-start flex-column gapX2">
+          <!-- 1. Image -->
+          <picture class="card__hero">
+            <a href="/src/projects/project4/" aria-label="project hero image" tabindex="-1">
+              <img src="/src/assets/images/project-4.png" alt="project 4">
+            </a>
+          </picture>
+          <!-- 2. Content -->
+          <div class="card__content flex-start flex-column gapX2">
+            <h2 class="content__title">
+              <a href="/src/projects/project4/" class="text-glow">
+                Web Resume
+              </a>
+            </h2>
+            <div class="content__desc">Web version Resume</div>
+            <!-- Links -->
+            <div class="content__links flex-start flex-wrap gapX2">
+              <!-- DEMO Link  -->
+              <div role="link" class="button button--rotate-over view">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <a href="/src/projects/project4/" target="_blank" class="link" tabindex="0">
+                  Demo
+                  <svg class="link__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                    fill="currentColor" viewBox="0 0 256 256">
+                    <rect width="256" height="256" fill="none"></rect>
+                    <path d="M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Z" fill="none"
+                      stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                    <circle cx="128" cy="128" r="40" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"></circle>
+                  </svg>
+                </a>
+              </div>
+              <!-- Code Link -->
+              <div role="link" class="button button--rotate-over view">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <a href="https://github.com/MohamedSaid7102/AA--RAW-HTML-CSS-JS-PROJECTS/tree/main/src/projects/project4"
+                  target="_blank" class="link" tabindex="0">
+                  Code
+                  <svg class="link__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                    fill="currentColor" viewBox="0 0 256 256">
+                    <rect width="256" height="256" fill="none"></rect>
+                    <polyline points="64 88 16 128 64 168" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"></polyline>
+                    <polyline points="192 88 240 128 192 168" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"></polyline>
+                    <line x1="160" y1="40" x2="96" y2="216" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- 3. Tags -->
+          <footer class="card__tags flex-start flex-row flex-wrap gapX1" role="list">
+            <!-- HTML Tag -->
+            <button class="card-tag" data-filter="html" aria-label="filter projects by html">
+              <span aria-hidden="true">#</span>
+              HTML
+            </button>
+            <!-- CSS Tag -->
+            <button class="card-tag" data-filter="css" aria-label="filter projects by css">
+              <span aria-hidden="true">#</span>
+              CSS
+            </button>
+            <!-- JS Tag -->
+            <button class="card-tag" data-filter="js" aria-label="filter projects by js">
+              <span aria-hidden="true">#</span>
+              JS
+            </button>
+          </footer>
         </div>
-      </div>
-    </div>
-    <!-- 5 -->
-    <div class="card-wrap rgb">
-      <div class="card" tabindex="1">
-        <span class="animation-span"></span>
-        <div class="card__img"><img src="/src/assets/images/project-5.png" alt="project image"></div>
-        <div class="card__content flex-center flex-column gapX3">
-          <h2 class="project-title text-glow">Before & After Image Slider</h2>
-          <a href="/src/projects/project5/" target="_blank" class="button button--rotate-over view" tabindex="1">
-            <span></span><span></span><span></span><span></span> View</a>
-          <a href="https://github.com/MohamedSaid7102/AA--RAW-HTML-CSS-JS-PROJECTS/tree/main/src/projects/project5"
-            target="_blank" class="button button--rotate-over view" tabindex="1">
-            <span></span><span></span><span></span><span></span> Code &lt;/&gt;</a>
+      </article>
+      <!-- Project #5 -->
+      <article class="card-wrap rgb">
+        <div class="card flex-start flex-column gapX2">
+          <!-- 1. Image -->
+          <picture class="card__hero">
+            <a href="/src/projects/project5/" aria-label="project hero image" tabindex="-1">
+              <img src="/src/assets/images/project-5.png" alt="project 5">
+            </a>
+          </picture>
+          <!-- 2. Content -->
+          <div class="card__content flex-start flex-column gapX2">
+            <h2 class="content__title">
+              <a href="/src/projects/project5/" class="text-glow">
+                Before&After
+              </a>
+            </h2>
+            <div class="content__desc">Before&After Image slider, with support for mobile swipes on it.</div>
+            <!-- Links -->
+            <div class="content__links flex-start flex-wrap gapX2">
+              <!-- DEMO Link  -->
+              <div role="link" class="button button--rotate-over view">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <a href="/src/projects/project5/" target="_blank" class="link" tabindex="0">
+                  Demo
+                  <svg class="link__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                    fill="currentColor" viewBox="0 0 256 256">
+                    <rect width="256" height="256" fill="none"></rect>
+                    <path d="M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Z" fill="none"
+                      stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                    <circle cx="128" cy="128" r="40" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"></circle>
+                  </svg>
+                </a>
+              </div>
+              <!-- Code Link -->
+              <div role="link" class="button button--rotate-over view">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <a href="https://github.com/MohamedSaid7102/AA--RAW-HTML-CSS-JS-PROJECTS/tree/main/src/projects/project5"
+                  target="_blank" class="link" tabindex="0">
+                  Code
+                  <svg class="link__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                    fill="currentColor" viewBox="0 0 256 256">
+                    <rect width="256" height="256" fill="none"></rect>
+                    <polyline points="64 88 16 128 64 168" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"></polyline>
+                    <polyline points="192 88 240 128 192 168" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"></polyline>
+                    <line x1="160" y1="40" x2="96" y2="216" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="16"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- 3. Tags -->
+          <footer class="card__tags flex-start flex-row flex-wrap gapX1" role="list">
+            <!-- HTML Tag -->
+            <button class="card-tag" data-filter="html" aria-label="filter projects by html">
+              <span aria-hidden="true">#</span>
+              HTML
+            </button>
+            <!-- CSS Tag -->
+            <button class="card-tag" data-filter="css" aria-label="filter projects by css">
+              <span aria-hidden="true">#</span>
+              CSS
+            </button>
+            <!-- JS Tag -->
+            <button class="card-tag" data-filter="js" aria-label="filter projects by js">
+              <span aria-hidden="true">#</span>
+              JS
+            </button>
+          </footer>
         </div>
-      </div>
-    </div>
-  </div>
+      </article>
+    </section>
+  </main>
 </body>
 
 </html>
