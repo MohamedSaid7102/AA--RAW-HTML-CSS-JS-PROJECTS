@@ -1,11 +1,7 @@
-const cards = [...document.querySelectorAll('.projects-container .card')];
-
-cards.forEach((card) => {
-  card.addEventListener('mousemove', (e) => {
-    const x = e.pageX - card.offsetLeft;
-    const y = e.pageY - card.offsetTop;
-
-    card.style.setProperty('--x', x + 'px');
-    card.style.setProperty('--y', y + 'px');
-  });
+const cards = [...document.querySelectorAll('.projects-container .card-wrap')];
+VanillaTilt.init(cards, {
+  reverse: false,
+  max: 10,
+  perspective: 2000,
+  speed: 1000,
 });

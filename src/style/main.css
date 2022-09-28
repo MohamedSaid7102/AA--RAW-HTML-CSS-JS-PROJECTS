@@ -114,23 +114,60 @@ body {
   border: 1px dotted #fff;
   padding: 2rem;
   margin-right: 2rem;
+
+  --card-border-radius: 10px;
+}
+
+.projects-container .card-wrap {
+  position: relative;
+}
+
+.projects-container .card-wrap:hover.rgb::after,
+.projects-container .card-wrap:focus-within.rgb::after {
+  animation: rgb-animation 4s linear infinite;
+  -webkit-animation: rgb-animation 4s linear infinite;
+  inset: -7px;
+}
+
+.rgb::after {
+  content: '';
+  background: linear-gradient(
+      45deg,
+      #ff0000 0%,
+      #ff9a00 10%,
+      #d0de21 20%,
+      #4fdc4a 30%,
+      #3fdad8 40%,
+      #2fc9e2 50%,
+      #1c7fee 60%,
+      #5f15f2 70%,
+      #ba0cf8 80%,
+      #fb07d9 90%,
+      #ff0000 100%
+    )
+    repeat 0% 0% / 300% 100%;
+  position: absolute;
+  inset: -5px;
+  z-index: -1;
+  /*Blurfilter*/
+  filter: blur(6px);
+  -webkit-filter: blur(6px);
 }
 
 .projects-container .card {
-  /* Variables */
+  /*Variables*/
   --card-hover-clr: #012030;
-  /* Style */
+  /*Style*/
   width: 330px;
   height: 450px;
   position: relative;
   overflow: hidden;
-
   border: 1px solid rgb(226, 224, 224);
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+  border-radius: var(--card-border-radius);
+  -webkit-border-radius: var(--card-border-radius);
+  -moz-border-radius: var(--card-border-radius);
+  -ms-border-radius: var(--card-border-radius);
+  -o-border-radius: var(--card-border-radius);
 }
 
 .projects-container .card .project-title {
@@ -141,8 +178,8 @@ body {
 
 .projects-container .card .animation-span {
   position: absolute;
-  top: var(--y);
-  left: var(--x);
+  top: 50%;
+  left: 50%;
   display: block;
   width: 0;
   height: 0;
@@ -162,11 +199,12 @@ body {
   -ms-border-radius: 100%;
   -o-border-radius: 100%;
   /*Transition*/
-  transition: 350ms;
-  -webkit-transition: 350ms;
-  -moz-transition: 350ms;
-  -ms-transition: 350ms;
-  -o-transition: 350ms;
+  transition: 550ms all ease-in-out;
+  -webkit-transition: 550ms all ease-in-out;
+  -moz-transition: 550ms all ease-in-out;
+  -ms-transition: 550ms all ease-in-out;
+  -o-transition: 550ms all ease-in-out;
+  -webkit-transition: 550ms;
 }
 
 .projects-container .card .card__img,
@@ -212,7 +250,7 @@ body {
 
 .projects-container .card:focus-visible,
 .projects-container .card:focus-within {
-  outline: 3px dotted #fff;
+  outline: 3px dotted transparent;
   outline-offset: 5px;
 }
 
@@ -258,15 +296,49 @@ body {
   }
 }
 
+/* Animations */
+@keyframes rgb-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 /* For people who prefer reduced motion  */
 @media (prefers-reduced-motion: reduce) {
-  .projects-container .card:hover .animation-span {
-    width: 0;
-    height: 0;
+  .projects-container .card .animation-span {
+    width: 1500;
+    height: 1500;
   }
+
+  .projects-container .card .card__content {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+
   .projects-container .card:hover .card__content .project-title {
     color: #000;
     text-shadow: 0 0 10px #fff;
+  }
+  @keyframes rgb-animation {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
   }
 }
 
@@ -354,6 +426,7 @@ body {
     -o-transform: scale(0.7);
   }
 }
+
 @media (max-width: 320px) {
   .projects-container {
     margin-left: 1rem;
@@ -367,6 +440,9 @@ body {
   .main-page-header .author-info {
     left: 1rem;
     top: 25rem;
+  }
+  .rgb::after {
+    inset: -5px 5px;
   }
 }
 @media (max-width: 285px) {
