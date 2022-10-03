@@ -1,0 +1,152 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-clr: #eee;
+  --icon-items-clr: rgb(89, 89, 89);
+  --icon-width: 60px;
+  --icon-height: 60px;
+}
+
+:root[data-theme='light'] {
+  --bg-clr: #eee;
+  --icon-hover-clr: rgba(128, 128, 128, 0.1);
+  --icon-items-clr: rgb(89, 89, 89);
+  --icon-items-hover-clr: rgb(0, 0, 0);
+}
+
+:root[data-theme='dark'] {
+  --bg-clr: rgb(35, 35, 35);
+  --icon-hover-clr: rgba(128, 128, 128, 0.324);
+  --icon-items-clr: darkgray;
+  --icon-items-hover-clr: rgb(255, 255, 255);
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-color: var(--bg-clr);
+}
+
+/* Theme Switch Icon Start */
+.icon-wrap {
+  position: relative;
+  display: flow-root; /** To create new BFC */
+  width: max-content;
+  height: max-content;
+  border-radius: 100vmax;
+  overflow: hidden;
+}
+.theme-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--icon-width, 60px);
+  height: var(--icon-height, 60px);
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  border-radius: 100vmax;
+  -webkit-border-radius: 100vmax;
+  -moz-border-radius: 100vmax;
+  -ms-border-radius: 100vmax;
+  -o-border-radius: 100vmax;
+}
+
+.theme-icon:hover {
+  background-color: var(--icon-hover-clr);
+}
+
+.theme-icon:hover :is(.box1, .box2),
+.theme-icon:hover ~ .circle {
+  background-color: var(--icon-items-hover-clr);
+}
+
+.theme-icon::after {
+  content: '';
+  position: absolute;
+  width: calc(var(--icon-width, 60px) / 3);
+  height: calc(var(--icon-height, 60px) / 3);
+  background-color: var(--bg-clr);
+  border-radius: 100vmax;
+  -webkit-border-radius: 100vmax;
+  -moz-border-radius: 100vmax;
+  -ms-border-radius: 100vmax;
+  -o-border-radius: 100vmax;
+}
+
+.box1,
+.box2,
+.circle {
+  background-color: var(--icon-items-clr);
+  position: absolute;
+}
+
+.box1,
+.box2 {
+  width: 30px;
+  height: 30px;
+}
+
+.box2 {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+}
+
+.circle {
+  z-index: 2;
+  pointer-events: none;
+  width: calc(var(--icon-width, 60px) / 4.4);
+  height: calc(var(--icon-height, 60px) / 4.4);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 100vmax;
+  display: flow-root;
+  transition-property: transform, left, top, width, height;
+  transition-duration: 450ms;
+  transition-timing-function: ease-in-out;
+}
+
+:root[data-theme='light'] .circle {
+  left: 25%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: calc(var(--icon-width, 60px) / 3.5);
+  height: calc(var(--icon-height, 60px) / 3.5);
+}
+
+:root[data-theme='dark'] .circle {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes rotate-right {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes rotate-left {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-270deg);
+  }
+}
+
+/* Theme Switch Icon End */
