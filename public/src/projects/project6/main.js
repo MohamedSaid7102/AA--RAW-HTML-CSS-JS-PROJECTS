@@ -1,48 +1,82 @@
-const themeButton = document.getElementById('theme-icon-btn');
-const themeButtonCircle = document.getElementById('icon-circle');
+const themeToggle = document.getElementById('theme-toggle');
+const themeToggleStar = document.querySelector('.toggle__star');
+const themeToggleCircle = document.querySelector('.toggle__circle');
+const LIGHT_THEME = 'light';
+const DARK_THEME = 'dark';
 
-themeButton.addEventListener('click', handleUserTheme);
+themeToggle.addEventListener('click', (e) => {
+  try {
+    handleUserTheme(e);
+  } catch (error) {
+    console.error(error.name, error.message);
+  }
+});
 
-document.addEventListener('DOMContentLoaded', handleUserTheme);
+window.addEventListener('DOMContentLoaded', (e) => {
+  try {
+    handleUserTheme(e);
+  } catch (error) {
+    console.error(error.name, error.message);
+  }
+});
 
-// Functions
-function handleUserTheme(e) {
-  const localStorageTheme = localStorage.getItem('my-theme');
-  const LIGHT_THEME = 'light';
-  const DARK_THEME = 'dark';
-
+/**
+ *
+ * @param {Event} e Event Object
+ * @param {String} localStorageTheme if thereis a theme in local storage with the name 'my-theme'
+ * @returns {Boolean} True || False According to locaStorageTheme
+ */
+function dataInLocalStorageHandled(e, localStorageTheme) {
   if (
     e.type === 'DOMContentLoaded' &&
     (localStorageTheme === LIGHT_THEME || localStorageTheme == DARK_THEME)
   ) {
+    // Update the theme
     document.documentElement.setAttribute('data-theme', localStorageTheme);
-    /** Disable the transition on the circle incase we reload and the theme is light, this is to prevent the circle from shifting from it's normal position.*/
-    if (localStorageTheme === 'light')
-      themeButtonCircle.style.transition = 'all 0s';
-    return;
+    // Update the position of the circle if user reload in light mood, to prevent circle shift.
+    // HINT: Comment the next condition block and reload the page in light mood to see the effect.
+    if (localStorageTheme === LIGHT_THEME) {
+      themeToggleCircle.style.transitionDuration = '0s ';
+      themeToggleCircle.style.transform = 'translate(-15%, -1%) scale(1.1)';
+    }
+    return true; /** True if the event was reloading or there was data about theme in local storage */
   }
+  return false; /** False if the event was not reloading or there was no data about theme in local storage */
+}
 
-  if (
-    window.getComputedStyle(themeButtonCircle).transition === 'all 0s ease 0s'
-  ) {
-    themeButtonCircle.style.transitionProperty =
-      'transform, left, top, width, height';
-    themeButtonCircle.style.transitionDuration = '450ms';
-    themeButtonCircle.style.transitionTimingFunction = 'ease-in-out';
-  }
+function handleUserTheme(e) {
+  const localStorageTheme = localStorage.getItem('my-theme');
 
-  // Switch themes
-  let theme = undefined;
-  if (localStorageTheme === LIGHT_THEME) theme = DARK_THEME;
-  else if (localStorageTheme === DARK_THEME) theme = LIGHT_THEME;
-  else theme = LIGHT_THEME; /** Choose light theme by default */
+  if (dataInLocalStorageHandled(e, localStorageTheme))
+    return; /** Terminate here, the function did the job */
 
-  setRootTheme(theme);
-  localStorage.setItem('my-theme', theme); /** Store in the local Storage */
-  // Add rotation animation
-  themeButton.style.animation = `${
-    theme === LIGHT_THEME ? 'rotate-right' : 'rotate-left'
-  } 1.2s cubic-bezier(.32,.43,.1,1.29)`;
+  if (localStorageTheme === LIGHT_THEME) enableDarkMood();
+  else if (localStorageTheme === DARK_THEME) enableLightMood();
+  else enableDarkMood(); /** Enable light mood by default */
+}
+
+function enableLightMood() {
+  setRootTheme(LIGHT_THEME);
+  localStorage.setItem('my-theme', LIGHT_THEME);
+  themeToggle.setAttribute('aria-label', `Switch to ${DARK_THEME} theme`);
+  // Animate toggle icon
+  themeToggleStar.style.animation =
+    'star-light-animation 1.1s cubic-bezier(.27,.25,.28,1.35)';
+
+  themeToggleCircle.style.transition = 'transform 0.5s linear';
+  themeToggleCircle.style.transform = 'translate(-15%, -1%) scale(1.1)';
+}
+
+function enableDarkMood() {
+  setRootTheme(DARK_THEME);
+  localStorage.setItem('my-theme', DARK_THEME);
+  themeToggle.setAttribute('aria-label', `Switch to ${LIGHT_THEME} theme`);
+  // Animate toggle icon
+  themeToggleStar.style.animation =
+    'star-dark-animation 1.1s cubic-bezier(.27,.25,.28,1.35)';
+
+  themeToggleCircle.style.transition = 'transform 0.5s linear';
+  themeToggleCircle.style.transform = 'translate(0%, 0%) scale(1)';
 }
 
 function setRootTheme(theme) {

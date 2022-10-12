@@ -8,23 +8,16 @@
 
 :root {
   --bg-clr: #eee;
-  --icon-items-clr: rgb(89, 89, 89);
-  --icon-width: 60px;
-  --icon-height: 60px;
+  --icon-width: 70px;
+  --icon-height: 70px;
 }
 
 :root[data-theme='light'] {
   --bg-clr: #eee;
-  --icon-hover-clr: rgba(128, 128, 128, 0.1);
-  --icon-items-clr: rgb(89, 89, 89);
-  --icon-items-hover-clr: rgb(0, 0, 0);
 }
 
 :root[data-theme='dark'] {
-  --bg-clr: rgb(35, 35, 35);
-  --icon-hover-clr: rgba(128, 128, 128, 0.324);
-  --icon-items-clr: darkgray;
-  --icon-items-hover-clr: rgb(255, 255, 255);
+  --bg-clr: #202124;
 }
 
 body {
@@ -34,118 +27,163 @@ body {
   background-color: var(--bg-clr);
 }
 
-/* Theme Switch Icon Start */
-.icon-wrap {
-  position: relative;
-  display: flow-root; /** To create new BFC */
-  width: max-content;
-  height: max-content;
+.theme-toggle-wrap {
+  max-width: max-content;
+  max-height: max-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
   border-radius: 100vmax;
-  overflow: hidden;
-}
-.theme-icon {
   position: relative;
+  display: block;
+  background-color: transparent;
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+    inset 0px -5px 115px rgba(255, 255, 255, 0.4);
+}
+
+/* Theme Switch Icon Start */
+.theme-toggle {
+  position: relative;
+  isolation: isolate;
   display: grid;
   place-items: center;
-  width: var(--icon-width, 60px);
-  height: var(--icon-height, 60px);
+  width: var(--icon-width, 70px);
+  height: var(--icon-height, 70px);
   cursor: pointer;
   border: none;
   background-color: transparent;
   border-radius: 100vmax;
-  -webkit-border-radius: 100vmax;
-  -moz-border-radius: 100vmax;
-  -ms-border-radius: 100vmax;
-  -o-border-radius: 100vmax;
 }
 
-.theme-icon:hover {
-  background-color: var(--icon-hover-clr);
-}
-
-.theme-icon:hover :is(.box1, .box2),
-.theme-icon:hover ~ .circle {
-  background-color: var(--icon-items-hover-clr);
-}
-
-.theme-icon::after {
+/* Ripple effect */
+.theme-toggle::before {
   content: '';
   position: absolute;
-  width: calc(var(--icon-width, 60px) / 3);
-  height: calc(var(--icon-height, 60px) / 3);
-  background-color: var(--bg-clr);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(0, 0%, 60%, 0.5);
+  transform-origin: center center;
   border-radius: 100vmax;
-  -webkit-border-radius: 100vmax;
-  -moz-border-radius: 100vmax;
-  -ms-border-radius: 100vmax;
-  -o-border-radius: 100vmax;
-}
-
-.box1,
-.box2,
-.circle {
-  background-color: var(--icon-items-clr);
-  position: absolute;
-}
-
-.box1,
-.box2 {
-  width: 30px;
-  height: 30px;
-}
-
-.box2 {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-}
-
-.circle {
-  z-index: 2;
   pointer-events: none;
-  width: calc(var(--icon-width, 60px) / 4.4);
-  height: calc(var(--icon-height, 60px) / 4.4);
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 100vmax;
-  display: flow-root;
-  transition-property: transform, left, top, width, height;
-  transition-duration: 450ms;
-  transition-timing-function: ease-in-out;
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 320ms ease-in, opacity 200ms linear;
+  z-index: -1;
 }
 
-:root[data-theme='light'] .circle {
-  left: 25%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: calc(var(--icon-width, 60px) / 3.5);
-  height: calc(var(--icon-height, 60px) / 3.5);
+.theme-toggle:active:before {
+  opacity: 1;
+  transform: scale(1);
 }
 
-:root[data-theme='dark'] .circle {
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+/* Remove it on small screen sizes */
+@media (min-width: 174px) {
+  .theme-toggle::after {
+    content: attr(aria-label);
+    width: max-content;
+    position: absolute;
+    top: 110%;
+    font-size: 1.1em;
+    background-color: rgb(61, 61, 61);
+    color: #eee;
+    padding: 0.2em 0.6em;
+    border-radius: 5px;
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: top center;
+    transition: transform 120ms ease-in, opacity 100ms linear;
+  }
+  :root[data-theme='dark'] .theme-toggle::after {
+    color: #333;
+    background-color: rgb(208, 208, 214);
+  }
+  .theme-toggle:hover::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .theme-toggle:active:after {
+    opacity: 0;
+    transform: scale(0);
+  }
 }
 
-@keyframes rotate-right {
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  outline: 1px solid transparent;
+  background-color: hsla(0, 0%, 50%, 0.1);
+}
+
+/* Light mood basic & hover for icon items start*/
+.theme-toggle :is(.toggle__star, .toggle__circle) {
+  color: hsl(0, 0%, 38%);
+}
+
+.theme-toggle:is(:hover, :focus-visible) :is(.toggle__star, .toggle__circle) {
+  color: hsl(0, 0%, 0%);
+}
+/* Light mood basic & hover for icon items end*/
+
+/* Dark mood basic & hover for icon items start*/
+
+:root[data-theme='dark'] .theme-toggle :is(.toggle__star, .toggle__circle) {
+  color: hsl(0, 0%, 60%);
+}
+
+:root[data-theme='dark']
+  .theme-toggle:is(:hover, :focus-visible)
+  :is(.toggle__star, .toggle__circle) {
+  color: hsl(0, 0%, 100%);
+}
+
+/* Dark mood basic & hover for icon items end*/
+
+.toggle__circle,
+.toggle__star {
+  transform-origin: center center;
+}
+
+.toggle__circle {
+  transition: transform 0.5s linear;
+}
+
+@keyframes star-light-animation {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(0turn);
   }
   100% {
-    transform: rotate(270deg);
+    transform: rotate(0.5turn);
   }
 }
 
-@keyframes rotate-left {
+@keyframes star-dark-animation {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(0turn);
   }
   100% {
-    transform: rotate(-270deg);
+    transform: rotate(-0.5turn);
+  }
+}
+
+@keyframes circle-light-animation {
+  0% {
+    transform: translate(0%, 0%) scale(1);
+  }
+  100% {
+    transform: translate(-15%, -1%) scale(1.1);
+  }
+}
+
+@keyframes circle-dark-animation {
+  0% {
+    transform: translate(-15%, -1%) scale(1.1);
+  }
+
+  100% {
+    transform: translate(0%, 0%) scale(1);
   }
 }
 
